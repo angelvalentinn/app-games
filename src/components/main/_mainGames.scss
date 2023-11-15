@@ -1,0 +1,141 @@
+.main_juegos {
+    background-color: $black_500;
+    padding: 0.5rem 1rem 2rem 1rem;
+
+    &_inicio {
+        @include flex(column, center, center);
+        gap: 2rem;
+        margin-top: 120px;
+        padding-bottom: 5rem;
+        position: relative;
+
+        &_filtro {
+            @include tablet {
+                @include flex(row, center, space-between);
+                width: 100%;
+            }
+        }
+
+        .sin-resultados {
+            color: $white_500;
+            @include flex(column, center, center);
+            gap: 1rem;
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            button {
+                font-size: 1.5rem;
+                cursor: pointer;
+                background-color: transparent;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        @include tablet {
+            margin-top: 90px;
+            padding-inline: 2rem;
+        }
+
+        h3 {
+            font-weight: bold;
+            font-size: 2rem;
+
+            @include desktop {
+                font-size: 3rem;
+            }
+
+            padding-block: 1rem;
+            color: $white_500;
+        }
+
+        .selects {
+            @include flex(row, unset, unset);
+            flex-wrap: wrap;
+            gap: 0.3rem;
+
+            select {
+                background-color: $primary_bold;
+                color: $white_500;
+                outline: none;
+                border: none;
+                padding-block: 0.5rem;
+                border-radius: 8px;
+                border: 1px solid $grey_300;
+                overflow-y: scroll;
+                width: 200px;
+
+                @include tablet {
+                    padding: 0.8rem;
+                    width: px;
+                }
+
+                &:hover {
+                    border: 1px solid $grey_200;
+                }
+
+                option {
+                    background-color: $primary_bold;
+                }
+            }
+        }
+
+        &_container {
+            @include flex(column, center, unset);
+
+            @include tablet {
+                @include flex(row, flex-start, center);
+                flex-wrap: wrap;
+            }
+
+            gap: 2rem;
+        }
+
+        &_pag {
+            border: 2px solid $black;
+            width: 120px;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            @include flex(row, center, space-between);
+            padding: 0.2rem;
+            font-size: 1.7rem;
+            border-radius: 8px;
+
+            span {
+                @include flex(row, center, center);
+                cursor: pointer;
+            }
+
+            .numero-pag {
+                font-size: 1.2rem;
+                cursor: auto;
+                color: $white_500;
+            }
+        }
+    }
+
+    .arrow-up {
+        cursor: pointer;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        font-size: 2rem;
+        width: 40px;
+        height: 40px;
+        border: 2px solid $black;
+        padding: 0.2rem;
+        border-radius: 50%;
+
+        &:hover {
+            background-color: $black;
+            color: $white_500;
+            transition: 0.3s ease all;
+        }
+    }
+}

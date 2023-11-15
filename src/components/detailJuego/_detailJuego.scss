@@ -1,0 +1,615 @@
+.detail {
+    padding-top: 120px;
+
+    @include tablet {
+        padding-top: 80px;
+    }
+
+    color: $white_500;
+
+    &_presentation {
+        padding: $padding-mobile;
+
+        @include desktop {
+            padding: 2rem;
+        }
+
+        @include flex(column, unset, space-between);
+        gap: 1rem;
+
+        min-height: 250px;
+
+        h2 {
+            @include desktop {
+                font-size: 3rem;
+            }
+        }
+
+        @include desktop {
+            min-height: 500px;
+            background-position: top;
+        }
+
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        &_text {
+            @include flex(column, flex-start, unset);
+            gap: 1rem;
+
+            @include desktop {
+                gap: 1.3rem;
+            }
+
+            font-size: 0.9rem;
+
+            .text-icon {
+                font-size: 1.2rem;
+
+                @include desktop {
+                    font-size: 1.5rem;
+                }
+            }
+
+            .flex-icon {
+                @include flex(column, flex-start, unset);
+                gap: 0.5rem;
+            }
+
+            span {
+                @include flex(row, center, center);
+                gap: 0.5rem;
+                font-weight: bold;
+
+                p {
+                    font-weight: 400;
+                }
+
+                .star {
+                    color: $yellow-star;
+                }
+            }
+
+            ul {
+                @include flex(row, center, unset);
+                flex-wrap: wrap;
+                gap: 0.5rem;
+
+                li {
+                    line-height: 0.7;
+                }
+            }
+        }
+
+        &_text_2 {
+            padding: $padding-mobile;
+
+            @include desktop {
+                padding: $padding-desktop;
+            }
+
+            background-color: $black_500;
+            @include flex(column, unset, unset);
+            gap: 2rem;
+            min-height: 300px;
+
+            .article-1 {
+                @include flex(row, flex-start, space-between);
+                flex-wrap: wrap;
+                gap: 0.5rem;
+
+                .puntuacion {
+                    @include flex(column, unset, unset);
+                    gap: 0.2rem;
+
+                    h5 {
+                        font-weight: bold;
+                        font-size: 1rem;
+
+                        @include desktop {
+                            font-size: 2rem;
+                        }
+                    }
+
+                    button {
+                        width: max-content;
+                        font-size: 1.5rem;
+                        width: 40px;
+                        height: 40px;
+                        border: 2px solid #47e647;
+                        background-color: inherit;
+                        color: #47e647;
+                        border-radius: 12px;
+
+                        @include desktop {
+                            height: 60px;
+                            width: 60px;
+                            font-size: 2rem;
+                        }
+                    }
+                }
+
+                ul {
+                    h5 {
+                        font-weight: bold;
+                        font-size: 1rem;
+
+                        @include desktop {
+                            font-size: 2rem;
+                        }
+                    }
+
+                    font-size: 0.9rem;
+
+                    @include desktop {
+                        font-size: 1.1rem;
+                    }
+
+                    div {
+                        @include flex(row, unset, unset);
+                        gap: 0.2rem;
+
+                        li {
+                            text-transform: capitalize;
+                            color: $primary;
+                        }
+                    }
+                }
+            }
+
+            .article-2 {
+                div {
+                    h5 {
+                        font-weight: bold;
+
+                        @include desktop {
+                            font-size: 2rem;
+                        }
+                    }
+
+                    ul {
+                        display: flex;
+                        flex-wrap: wrap;
+
+                        li {
+                            font-size: 0.9rem;
+
+                            @include desktop {
+                                font-size: 1.1rem;
+                            }
+
+                            font-weight: 400;
+                        }
+                    }
+                }
+            }
+
+            .group-1 {
+                @include desktop {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                }
+
+                .description {
+                    font-size: 2rem;
+                    @include flex(column, flex-start, unset);
+                    gap: 0.5rem;
+                    width: 90%;
+
+                    h4 {
+                        position: relative;
+                        padding-left: 12px;
+
+                        &::before {
+                            content: "";
+                            position: absolute;
+                            inset: 0;
+                            border-left: 6px solid $primary;
+                            padding-right: 2px;
+                        }
+                    }
+
+                    p {
+                        font-size: 1rem;
+                        overflow: hidden;
+                    }
+
+                    .vermas {
+                        border: none;
+                        background-color: $grey_300;
+                        border-radius: 4px;
+                        cursor: pointer;
+                        width: 150px;
+                        height: 30px;
+                        color: $white_500;
+                        transition: 0.3s ease all;
+
+                        &:hover {
+                            background-color: $grey_hov;
+                        }
+                    }
+                }
+
+                .comprar {
+                    @include flex(column, flex-start, unset);
+                    gap: 0.5rem;
+
+                    h5 {
+                        font-size: 2rem;
+                    }
+
+                    ul {
+                        @include flex(row, center, unset);
+                        flex-wrap: wrap;
+                        gap: 0.5rem;
+
+                        li {
+                            padding: 0.5rem;
+                            background-color: $grey_300;
+                            cursor: pointer;
+
+                            &:hover {
+                                background-color: $grey_hov;
+                                transition: 0.2 ease all;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .group-2 {
+                @include flex(column, unset, unset);
+                gap: 1rem;
+
+                @include desktop {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 0;
+                }
+
+                .sitioweb {
+                    h3 {
+                        font-size: 2rem;
+                    }
+
+                    a {
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+
+                .tags {
+                    @include flex(column, unset, unset);
+                    gap: 0.5rem;
+
+                    h6 {
+                        font-size: 2rem;
+                        font-weight: bold;
+                    }
+
+                    ul {
+                        @include flex(row, unset, unset);
+                        flex-wrap: wrap;
+                        gap: 0.5rem;
+
+                        li {
+                            padding: 0 0.5rem;
+                            border: 1px solid $grey_300;
+                        }
+                    }
+                }
+            }
+
+            .logros {
+                @include flex(column, flex-start, center);
+                gap: 1rem;
+
+                h6 {
+                    font-size: 2rem;
+                    font-weight: bold;
+                }
+
+                ul {
+                    display: grid;
+                    grid-template-columns: 1fr;
+
+                    @include desktop {
+                        width: 100%;
+                        grid-template-columns: 1fr 1fr;
+                    }
+
+                    div {
+                        @include flex(row, unset, unset);
+                        column-gap: 0.5rem;
+                        min-height: 100px;
+
+                        @include desktop {
+                            width: 80%;
+                            justify-self: center;
+                        }
+
+                        img {
+                            height: 60px;
+                            width: 60px;
+                        }
+
+                        .texts {
+                            @include flex(column, flex-start, flex-start);
+
+                            li {
+                                font-size: 1.1rem;
+                                font-weight: bold;
+                            }
+
+                            p {
+                                font-size: 0.8rem;
+                                font-weight: 400;
+                                color: $grey_100;
+                            }
+                        }
+                    }
+                }
+
+                .cambiar {
+                    @include flex(row, unset, unset);
+                    gap: 2rem;
+                    align-self: center;
+
+                    span {
+                        @include flex(column, center, center);
+                        font-size: 0.9rem;
+                        cursor: pointer;
+
+                        svg {
+                            font-size: 2rem;
+                        }
+
+                        &:hover {
+                            color: $grey_200;
+                            transition: 0.3s ease all;
+                        }
+                    }
+                }
+            }
+
+            .requerimientos {
+                @include flex(column, unset, center);
+                gap: 2rem;
+
+                @include desktop {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    align-items: flex-start;
+                }
+
+                div {
+                    @include flex(column, unset, center);
+                    gap: 0.5rem;
+
+                    h6 {
+                        font-size: 1.5rem;
+                        line-height: 1.2;
+                    }
+
+                    p {
+                        font-size: 0.9rem;
+                        overflow: hidden;
+                    }
+
+                    .vermas {
+                        border: none;
+                        background-color: $grey_300;
+                        border-radius: 4px;
+                        cursor: pointer;
+                        width: 150px;
+                        height: 30px;
+                        color: $white_500;
+                        transition: 0.3s ease all;
+
+                        &:hover {
+                            background-color: $grey_hov;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .creadores {
+        background-color: $black;
+        padding: $padding-mobile;
+
+        @include desktop {
+            padding: $padding-desktop;
+        }
+
+        @include flex(column, unset, center);
+        gap: 2rem;
+
+        .imagenes {
+            position: relative;
+            @include flex(column, unset, center);
+            gap: 1rem;
+
+            h6 {
+                font-size: 2rem;
+            }
+
+            picture {
+                @include flex(row, unset, unset);
+                gap: .5rem;
+                overflow-x: scroll;
+
+                img {
+                    width: 300px;
+                    height: 250px;
+                    object-fit: cover;
+                    transform: scale(0.95);
+                    transition: transform 0.5s;
+
+                    &:hover {
+                        transform: scale(1.0);
+                    }
+                }
+
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+            }
+        }
+
+        .article-creadores {
+            @include flex(column, unset, center);
+            gap: 0.5rem;
+            position: relative;
+
+            h6 {
+                font-size: 2rem;
+            }
+
+            ul {
+                @include flex(row, center, unset);
+                overflow-x: scroll;
+                gap: 1.5rem;
+                scroll-behavior: smooth;
+
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+
+                div {
+                    min-height: 300px;
+                    padding: 0.5rem;
+                    min-width: 250px;
+                    background-position: center;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    transition: transform 0.5s;
+                    transform: scale(0.95);
+
+                    &:hover {
+                        transform: scale(1.0);
+                    }
+
+                    @include flex(column, center, unset);
+                    gap: 1rem;
+
+                    li {
+                        font-size: 1rem;
+                        font-weight: 600;
+                    }
+
+                    img {
+                        width: 90px;
+                        height: 90px;
+                        object-fit: cover;
+                        border-radius: 50%;
+                    }
+
+                    .position {
+                        @include flex(row, unset, unset);
+                        gap: 0.5rem;
+
+                        li {
+                            font-weight: 400;
+                        }
+                    }
+
+                    .conocido-por {
+                        @include flex(column, center, center);
+                        text-align: center;
+                        gap: 0;
+
+                        li {
+                            font-weight: 400;
+                        }
+                    }
+                }
+            }
+        }
+
+        .misma-serie {
+            @include flex(column, unset, center);
+            position: relative;
+            gap: 0.5rem;
+
+            h6 {
+                font-size: 2rem;
+            }
+
+            .container-misma-serie {
+                @include flex(row, flex-start, unset);
+
+                overflow-x: scroll;
+
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+            }
+
+            .cardGame-container {
+                transition: transform 0.5s;
+                min-width: 250px;
+
+                img {
+                    width: 100%;
+                }
+
+                transform: scale(0.95);
+
+                &:hover {
+                    transform: scale(1);
+                    background-color: none;
+                }
+            }
+        }
+
+        .arrowLeft,
+        .arrowRight {
+            position: absolute;
+            top: 50%;
+            font-size: 2.5rem;
+            border-radius: 50%;
+            padding: 0.1rem;
+            transform: translateY(-50%);
+            color: $secundary;
+            cursor: pointer;
+            transition: 0.3s ease all;
+
+            &:hover {
+                background-color: $secundary;
+                color: $white;
+            }
+        }
+
+        .arrowLeft {
+            left: 10px;
+        }
+
+        .arrowRight {
+            right: 10px;
+        }
+
+        .change {
+            @include flex(row, unset, center);
+            gap: 2rem;
+
+            span {
+                cursor: pointer;
+                @include flex(column, center, center);
+                font-size: 0.8rem;
+                transition: 0.3s ease color;
+
+                &:hover {
+                    color: $grey_200;
+                }
+
+                svg {
+                    font-size: 1.3rem;
+                }
+            }
+        }
+    }
+}

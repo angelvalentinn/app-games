@@ -1,0 +1,89 @@
+.main_inicio {
+    padding: 140px 1rem 2rem 1rem;
+    color: $white_500;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    color: $white;
+
+    &_presentacion {
+        @include flex(column, flex-start, center);
+        gap: 1.4rem;
+
+        @include desktop {
+            padding-top: 0.5rem;
+            padding-left: 4rem;
+        }
+
+        text-align: left;
+
+        span {
+            text-transform: uppercase;
+            padding: 0.5rem;
+            font-weight: bold;
+            color: $white;
+            background-color: $primary;
+            font-size: 0.8rem;
+
+            @include desktop {
+                font-size: 1rem;
+            }
+        }
+
+        h2 {
+            line-height: 1.4;
+            text-transform: uppercase;
+            font-size: 1.3rem;
+
+            @include tablet {
+                width: 80%;
+            }
+
+            @include desktop {
+                width: 40%;
+                font-size: 2rem;
+            }
+        }
+
+        p {
+            font-size: 0.8rem;
+
+            @include tablet {
+                width: 80%;
+            }
+
+            @include desktop {
+                width: 50%;
+                font-size: 0.9rem;
+            }
+        }
+
+        button {
+            @include flex(row, flex-end, unset);
+            cursor: pointer;
+            gap: 0.5rem;
+            border: 2px solid $primary;
+            padding: 0.5rem;
+            color: $primary;
+            text-transform: uppercase;
+            background-color: inherit;
+
+            @include desktop {
+                font-size: 1rem;
+            }
+
+            transition: 0.3s ease all;
+
+            &:hover {
+                background-color: $primary;
+                color: $white;
+            }
+
+            .icon-mando {
+                color: $white;
+                font-size: 1.3rem;
+            }
+        }
+    }
+}

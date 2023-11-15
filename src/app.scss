@@ -1,0 +1,12 @@
+@import './scss/variables';
+@import './scss/breakpoints';
+@import './scss/mixins';
+@import './scss/reset';
+
+@import './components/header/header';
+@import './components/header/header';
+@import './components/cardGame/cardGame';
+@import './components/main/mainGames';
+@import './components/inicio/inicio';
+@import './components/loader/loader';
+@import './components/detailJuego/detailJuego';

@@ -1,0 +1,187 @@
+.header {
+    position: fixed;
+    z-index: 100;
+    right: 0;
+    left: 0;
+    display: grid;
+    grid-template-rows: repeat(2, max-content);
+    background-color: $black;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: .5rem;
+    padding-block: 1rem .5rem;
+    padding-inline: 1rem;
+
+    @include tablet {
+        @include flex(unset ,center, space-around);
+        padding-block: 1rem;
+    }
+
+    @include desktop {
+        padding-inline: 2rem;
+    }
+
+    &_hamburguer {
+        width: 40px;
+        cursor: pointer;
+        grid-row: 2;
+        color: $white_500;
+    }
+
+    &_logo {
+        grid-row: 2; 
+        grid-column: 2;
+        justify-self: flex-end;
+        align-self: center;
+        @include flex(unset ,center, center);
+
+        img {
+            max-height: 40px;
+            max-width: 40px;
+        }
+
+    }
+
+    &_form {
+        grid-column: 1 / -1;
+        justify-self: center;
+        @include flex(unset ,unset, center);
+        @include tablet {
+            flex-grow: 1;
+        }
+        div {
+            position: relative;
+            height: 40px;
+            width: 240px;
+            overflow: hidden;
+
+            @include tablet {
+                width: 300px;
+            }
+            @include desktop {
+                height: 40px;
+                width: 400px;
+            }
+            input {
+                padding-inline: 15px;
+                position: absolute;
+                inset: 0;   
+                border-radius: 50px;
+                background-color: $black_500;
+                color: $white;
+                border: 1px solid $black_500;
+                &:focus {
+                    border: 1px solid $grey_300;
+                }
+            }
+            button {
+                position: absolute;
+                right: 15px;
+                padding-left: 12px;
+                top: 50%;
+                transform: translateY(-50%);
+                background-color: inherit;
+
+                span {
+                    position: absolute;
+                    height: 100px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    inset: 0;
+                    border-left: 1px solid $black;
+                    width: 50px;
+                    cursor: pointer;
+                }
+
+                .search-icon {
+                    color: $grey_200;
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+
+    &_nav {
+        padding: 8rem 0;
+        position: fixed;
+        top:120px;
+        @include tablet {
+            top: 80px;
+            padding: 6rem 0;
+        }
+        &::-webkit-scrollbar {
+            width: 4px;  
+        }
+        &::-webkit-scrollbar-thumb {
+            background-color: $grey_300;    
+            border-radius: 20px;       
+            border: 1px solid $grey_300;  
+        }
+        left: 0;
+        transform: translateX(-100%);
+        background-color: $black;
+        color: $white_500;
+        @include flex(column, unset, center);
+        transition: .4s all ease;
+        overflow-y: scroll;
+        height: 100vh;
+    
+        &_ul {
+            margin-top: 1570px;
+            @include desktop {
+                margin-top: 1500px;
+            }
+            &_inicio,
+            &_all {
+                display: flex;
+                gap: .5rem;
+                color: $primary;
+                padding: .5rem 1rem;
+                cursor: pointer;
+                &:hover {
+                    background-color: $black_500;
+                }
+                
+                li {
+                    color: $white_500;
+                }
+                .iconos {
+                    font-size: 1.3rem;
+                }
+            }
+            &_inicio {
+                font-weight: bold;
+                color: $secundary;
+            }
+        }
+
+        section {
+            p {
+                font-weight: 300;
+                padding: 1rem;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+            }
+
+            .header_nav_plataformas {
+                div {
+                    padding: .5rem 1rem;
+                    cursor: pointer;
+                    @include flex(row,center,unset);
+                    gap: 1rem;
+                    img {
+                        height: 40px;
+                        width: 40px;
+                        object-fit: cover;
+                        border-radius: 8px;
+                    }
+                    &:hover {
+                        background-color: $black_500;
+                    }
+                }
+            }
+
+        }
+    }
+
+}

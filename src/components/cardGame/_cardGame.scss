@@ -1,0 +1,72 @@
+.cardGame-container {
+    @include flex(column, center, center);
+
+    @include tablet {
+        @include flex(column, flex-start, flex-start);
+    }
+
+    text-align: center;
+    cursor: pointer;
+    color: $white_500;
+    transition: .3s ease all;
+    max-width: 300px;
+
+    @include tablet {
+        max-width: 200px;
+        text-align: left;
+        min-height: 330px;
+    }
+
+    .juego_text {
+        padding-top: 1rem;
+        @include flex(column, center, center);
+
+        @include tablet {
+            @include flex(column, unset, center);
+        }
+
+        gap: .5rem;
+    }
+
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.16);
+        border-end-end-radius: 20px;
+    }
+
+    img {
+        width: 300px;
+        height: 150px;
+        object-fit: cover;
+
+        @include tablet {
+            max-width: 200px;
+            max-height: 250px;
+        }
+    }
+
+    p {
+
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+
+    span {
+        @include flex(row, center, unset);
+        gap: 1rem;
+
+        .star {
+            color: $yellow-star;
+        }
+    }
+
+    ul {
+        @include flex(row, unset, center);
+
+        @include tablet {
+            @include flex(row, unset, unset);
+        }
+
+        flex-wrap: wrap;
+        gap: 0rem 1rem;
+    }
+}

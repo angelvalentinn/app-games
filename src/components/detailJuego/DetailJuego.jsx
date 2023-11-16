@@ -198,7 +198,7 @@ const DetailJuego = ({ setParams, setStr, setInput }) => {
                                         {
                                             juego.tags && juego.tags.map(tag => {
                                                 return (
-                                                    <Link to='/allgames' key={tag.slug}><p onClick={() => fetchearTags(tag.slug, tag.name)}>{tag.name}</p></Link>
+                                                    <Link to='/allgames' key={tag.slug}><p onClick={() => fetchearTags(tag.slug, tag.name)} onMouseUp={() => window.scroll(0,0)}>{tag.name}</p></Link>
                                                 )
                                             })
                                         }

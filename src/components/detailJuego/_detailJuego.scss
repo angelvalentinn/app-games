@@ -355,9 +355,9 @@
                 }
 
                 .cambiar {
-                    @include flex(row, unset, unset);
-                    gap: 2rem;
                     align-self: center;
+                    @include flex(row, unset, center);
+                    gap: 2rem;
 
                     span {
                         @include flex(column, center, center);
@@ -432,7 +432,7 @@
 
         .imagenes {
             position: relative;
-            @include flex(column, unset, center);
+            @include flex(column,unset, center);
             gap: 1rem;
 
             h6 {
@@ -469,6 +469,10 @@
 
             h6 {
                 font-size: 2rem;
+            }
+
+            .change {
+                align-self: center
             }
 
             div {
@@ -597,7 +601,6 @@
         .change {
             @include flex(row, unset, center);
             gap: 2rem;
-
             span {
                 cursor: pointer;
                 @include flex(column, center, center);

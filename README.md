@@ -1,4 +1,4 @@
-# App de información de videojuegos
+# App de información de videojuegos - REACT + SASS
 *La app es una plataforma para ver información, datos acerca de juegos. Se brindan varios filtros para poder buscar de forma mas accesible y también un input para hacer una busqueda mas específica La información es traída de RAWG API.*
 
 ## Construído con: 

@@ -108,7 +108,7 @@ const Main = ({ juegos, setJuegos, pag, setPag, str, params, setParams, todosLos
                                     <option value="1958">1958</option>
 
                                 </select>
-                                
+
                                 <select name="fechas" id="fechas" onChange={(e) => filtrarPorPopularidad(e)}>
                                     <option value="">Ordenar por</option>
                                     <option value="name">Nombre</option>

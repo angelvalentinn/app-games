@@ -6,7 +6,7 @@ const CardGame = ({bg_img,name,rat,genres,rel}) => {
     return (
         <article className='cardGame-container'>
 
-            <img src={bg_img || nouser} alt={name} loading='lazy'/>
+            <img src={bg_img || nouser} alt={`Imagen de ${name}`} loading='lazy'/>
 
             <div className='juego_text'>
                 <p>{name}</p>

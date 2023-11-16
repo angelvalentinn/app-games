@@ -119,16 +119,19 @@ const DetailJuego = ({ setParams, setStr }) => {
                                     <button>{juego.metacritic || '?'}</button>
                                 </div>
 
-                                <ul>
+                                <div className='calificacion'>
                                     <h5>Calificaciones</h5>
-                                    {
-                                        juego.ratings.map(rat => {
-                                            return (
-                                                <div key={rat.title}><li>{rat.title}:</li><span>%{rat.percent}</span></div>
-                                            )
-                                        })
-                                    }
-                                </ul>
+
+                                    <ul>
+                                        {
+                                            juego.ratings.map(rat => {
+                                                return (
+                                                    <div key={rat.title}><li>{rat.title}:</li><span>%{rat.percent}</span></div>
+                                                )
+                                            })
+                                        }
+                                    </ul>
+                                </div>
 
                                 <article className='article-2'>
 
@@ -168,19 +171,19 @@ const DetailJuego = ({ setParams, setStr }) => {
 
                                     <h5>Donde comprar</h5>
 
-                                    <ul>
+                                    <div>
                                         {
                                             juego.stores.map((sto) => {
                                                 const url = store && store.results && store.results.find(item => item.store_id == sto.store.id)?.url;
                                                 return (
-                                                    <a target='_blank' href={url} key={sto.store.name}><li key={sto.store.name}>{sto.store.name}</li></a>
+                                                    <a target='_blank' href={url} key={sto.store.name}><p key={sto.store.name}>{sto.store.name}</p></a>
                                                 )
                                             })
                                         }
                                         {
                                             juego.stores.length == 0 && <li style={{ cursor: 'auto' }}>?</li>
                                         }
-                                    </ul>
+                                    </div>
 
                                 </article>
                             </div>
@@ -193,31 +196,31 @@ const DetailJuego = ({ setParams, setStr }) => {
 
                                 <article className='tags'>
                                     <h6>Tags</h6>
-                                    <ul>
+                                    <div>
                                         {
                                             juego.tags.map(tag => {
                                                 return (
-                                                    <Link to='/allgames'><li onClick={() => fetchearTags(tag.slug, tag.name)} key={tag.name}>{tag.name}</li></Link>
+                                                    <Link to='/allgames'><p onClick={() => fetchearTags(tag.slug, tag.name)} key={tag.name}>{tag.name}</p></Link>
                                                 )
                                             })
                                         }
                                         {
                                             juego.tags.length == 0 && <li>?</li>
                                         }
-                                    </ul>
+                                    </div>
                                 </article>
                             </div>
 
                             <article className='logros'>
                                 <h6>Logros</h6>
-                                <ul>
+                                <div>
                                     {
                                         logros && logros?.results.map((logro) => {
                                             return (
                                                 <div key={logro.name}>
                                                     <img src={logro.image} alt={logro.name} />
                                                     <div className='texts'>
-                                                        <li>{logro.name}</li>
+                                                        <p className='name'>{logro.name}</p>
                                                         <p>{logro.description}</p>
                                                     </div>
                                                 </div>
@@ -227,7 +230,7 @@ const DetailJuego = ({ setParams, setStr }) => {
                                     {
                                         logros?.results.length == 0 && <li>?</li>
                                     }
-                                </ul>
+                                </div>
 
                                 {logros?.results.length != 0 && <div className='cambiar'>
                                     <span onClick={() => logros && logros.previous && actualizarLogros(logros.previous)} style={logros && !logros.previous ? { opacity: '.1', cursor: 'auto' } : { opacity: '1' }}><BsArrowLeft />Ant</span>
@@ -258,7 +261,7 @@ const DetailJuego = ({ setParams, setStr }) => {
                                     {
                                         imagenes && imagenes.results.map(img => {
                                             return (
-                                                <img src={img.image}></img>
+                                                <img src={img.image} alt={`Imagen sobre el juego`}></img>
                                             )
                                         })
                                     }
@@ -278,13 +281,13 @@ const DetailJuego = ({ setParams, setStr }) => {
 
                             <article className='article-creadores'>
                                 <h6>Creadores</h6>
-                                <ul className='creadores-ul'>
+                                <div className='creadores-ul'>
                                     {
                                         creadores && creadores?.results.length == 0 ? 'No se encontraron' : creadores?.results.map(cre => {
                                             return (
                                                 <div key={cre.name} style={{ backgroundImage: `linear-gradient(0deg,rgba(0,0,0,.4) ,rgba(0,0,0,.5)),url(${cre.image_background})` }}>
 
-                                                    <li>{cre.name}</li>
+                                                    <p className='name'>{cre.name}</p>
                                                     <img src={cre.image ? cre.image : nouser} alt={cre.name} />
                                                     <ul className='position'>
                                                         {
@@ -308,7 +311,7 @@ const DetailJuego = ({ setParams, setStr }) => {
                                             )
                                         })
                                     }
-                                </ul>
+                                </div>
                                 {creadores?.results.length != 0 &&
                                     <>
                                         <BsArrowLeft onClick={() => toLeft('creadores-ul')} className='arrowLeft' />

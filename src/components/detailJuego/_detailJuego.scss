@@ -130,7 +130,7 @@
                     }
                 }
 
-                ul {
+                .calificacion {
                     h5 {
                         font-weight: bold;
                         font-size: 1rem;
@@ -145,14 +145,16 @@
                     @include desktop {
                         font-size: 1.1rem;
                     }
+                    ul {
+                        @include flex(column, unset, unset);
+                        div {
+                            @include flex(row, unset, unset);
+                            gap: 0.2rem;
 
-                    div {
-                        @include flex(row, unset, unset);
-                        gap: 0.2rem;
-
-                        li {
-                            text-transform: capitalize;
-                            color: $primary;
+                            li {
+                                text-transform: capitalize;
+                                color: $primary;
+                            }
                         }
                     }
                 }
@@ -239,12 +241,12 @@
                         font-size: 2rem;
                     }
 
-                    ul {
+                    div {
                         @include flex(row, center, unset);
                         flex-wrap: wrap;
                         gap: 0.5rem;
 
-                        li {
+                        p {
                             padding: 0.5rem;
                             background-color: $grey_300;
                             cursor: pointer;
@@ -289,12 +291,12 @@
                         font-weight: bold;
                     }
 
-                    ul {
+                    div {
                         @include flex(row, unset, unset);
                         flex-wrap: wrap;
                         gap: 0.5rem;
 
-                        li {
+                        p {
                             padding: 0 0.5rem;
                             border: 1px solid $grey_300;
                         }
@@ -311,7 +313,7 @@
                     font-weight: bold;
                 }
 
-                ul {
+                div {
                     display: grid;
                     grid-template-columns: 1fr;
 
@@ -338,7 +340,7 @@
                         .texts {
                             @include flex(column, flex-start, flex-start);
 
-                            li {
+                            .name {
                                 font-size: 1.1rem;
                                 font-weight: bold;
                             }
@@ -469,7 +471,7 @@
                 font-size: 2rem;
             }
 
-            ul {
+            div {
                 @include flex(row, center, unset);
                 overflow-x: scroll;
                 gap: 1.5rem;
@@ -496,7 +498,7 @@
                     @include flex(column, center, unset);
                     gap: 1rem;
 
-                    li {
+                    .name {
                         font-size: 1rem;
                         font-weight: 600;
                     }

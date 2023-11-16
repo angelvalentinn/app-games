@@ -74,7 +74,7 @@
                     border: 1px solid $grey_300;
                 }
             }
-            button {
+            p {
                 position: absolute;
                 right: 15px;
                 padding-left: 12px;
@@ -126,7 +126,7 @@
         overflow-y: scroll;
         height: 100vh;
     
-        &_ul {
+        &_div {
             margin-top: 1570px;
             @include desktop {
                 margin-top: 1500px;
@@ -142,7 +142,7 @@
                     background-color: $black_500;
                 }
                 
-                li {
+                p {
                     color: $white_500;
                 }
                 .iconos {
@@ -164,6 +164,7 @@
             }
 
             .header_nav_plataformas {
+                list-style: none;
                 div {
                     padding: .5rem 1rem;
                     cursor: pointer;
@@ -177,6 +178,13 @@
                     }
                     &:hover {
                         background-color: $black_500;
+                    }
+                    p {
+                        padding: 0;
+                        font-size: 1rem;
+                        letter-spacing: 0;
+                        font-weight: 400;
+                        text-transform: capitalize;
                     }
                 }
             }

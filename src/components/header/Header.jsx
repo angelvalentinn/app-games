@@ -49,10 +49,10 @@ const Header = ({todosLosJuegos, setPag, setStr, params, setParams}) => {
             <form className='header_form' onSubmit={handleForm}>
                 <div>
                     <input type="text" placeholder="Busca un videojuego..." value={input} onChange={(e) => setInput(e.target.value)}/>
-                    <button>
+                    <p>
                         <span></span>
                         <BsSearch className='search-icon' />
-                    </button>
+                    </p>
                 </div>
             </form>
 
@@ -62,35 +62,35 @@ const Header = ({todosLosJuegos, setPag, setStr, params, setParams}) => {
 
             <nav className={`header_nav`} style={hamburguer ? { transform: 'translateX(0)' } : { transform: 'translate(-100%)' }} >
                 
-                <ul className='header_nav_ul'>
-                <Link to={'/'} onClick={() => setHamburguer(false)}><div className='header_nav_ul_inicio'><BsHouseFill className='iconos' /><li>Inicio</li></div></Link>
-                    <Link to={'/allgames'} onClick={todosLosJuegos} onMouseUp={() => setHamburguer(false)}><div className='header_nav_ul_all' ><BsJoystick className='iconos' /><li>Todos los juegos</li></div></Link>
-                </ul>
+                <div className='header_nav_div'>
+                    <Link to={'/'} onClick={() => setHamburguer(false)}><div className='header_nav_div_inicio'><BsHouseFill className='iconos' /><p>Inicio</p></div></Link>
+                    <Link to={'/allgames'} onClick={todosLosJuegos} onMouseUp={() => setHamburguer(false)}><div className='header_nav_div_all' ><BsJoystick className='iconos' /><p>Todos los juegos</p></div></Link>
+                </div>
 
                 <section>
                     <p>Plataformas</p>
-                    <ul className='header_nav_plataformas'>
+                    <div className='header_nav_plataformas'>
                         {
                             plataformas && plataformas.results.map(plat => {
                                     return (
-                                    <Link key={plat.name} to={`/allgames`}  onClick={() => filtrarPorPlataforma(plat.id,plat.name)}><div><img src={plat.platforms[0].image_background} alt="" /><li>{plat.name}</li></div></Link>
+                                    <Link key={plat.name} to={`/allgames`}  onClick={() => filtrarPorPlataforma(plat.id,plat.name)}><div><img src={plat.platforms[0].image_background} alt={`Imagen de ${plat.name}`}/><p>{plat.name}</p></div></Link>
                                 )
                             })
                         }
-                    </ul>
+                    </div>
                 </section>
 
                 <section>
                     <p>Generos</p>
-                    <ul className='header_nav_plataformas'>
+                    <div className='header_nav_plataformas'>
                         {
                             generos && generos.results.map(gen => {
                                 return (
-                                    <Link to={`/allgames`} key={gen.slug}><div onClick={() => filtrarPorGenero(gen.slug,gen.name)} ><img src={gen.image_background} alt={gen.slug} /><li>{gen.name}</li></div></Link>
+                                    <Link to={`/allgames`} key={gen.slug}><div onClick={() => filtrarPorGenero(gen.slug,gen.name)} ><img src={gen.image_background} alt={`Imagen de ${gen.name}`} /><p>{gen.name}</p></div></Link>
                                 )
                             })
                         }
-                    </ul>
+                    </div>
                 </section>
 
             </nav>

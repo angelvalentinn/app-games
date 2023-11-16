@@ -15,7 +15,7 @@ const CardGame = ({bg_img,name,rat,genres,rel}) => {
                     {
                         genres && genres.map(genero => {
                             return (
-                                <li key={genero.name}>{genero.name}</li>
+                                <li key={genero.slug}>{genero.name}</li>
                             )
                         })
                     }

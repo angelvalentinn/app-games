@@ -20,16 +20,13 @@ const DetailJuego = ({ setParams, setStr }) => {
     const [imagenes, setImagenes] = useState(null);
 
     useEffect(() => {
+        fetchingData(setJuego, URLS.juegoDetail(id));
         fetchingData(setStore, URLS.juegoStore(id));
         fetchingData(setLogros, URLS.juegoLogros(id));
         fetchingData(setCreadores, URLS.juegoCreadores(id));
         fetchingData(setMismaSerie, URLS.juegoMismaSerie(id));
         fetchingData(setImagenes, URLS.juegoImagenes(id));
     }, []);
-
-    useEffect(() => {
-        fetchingData(setJuego, URLS.juegoDetail(id));
-    }, [id])
 
     const actualizarLogros = url => fetchingData(setLogros, url);
 
@@ -74,9 +71,9 @@ const DetailJuego = ({ setParams, setStr }) => {
                                     <span><FiMonitor className='text-icon icon-monitor' />Plataformas</span>
                                     <ul>
                                         {
-                                            juego.platforms.map((plat, i) => {
+                                            juego.platforms && juego.platforms.map((plat, i) => {
                                                 return (
-                                                    <li key={plat.name}>{plat.platform.name}{juego.platforms.length - 1 != i && ','}</li>
+                                                    <li key={plat.slug}>{plat.platform.name}{juego.platforms.length - 1 != i && ','}</li>
                                                 )
                                             })
                                         }
@@ -86,9 +83,9 @@ const DetailJuego = ({ setParams, setStr }) => {
                                     <span><BsFillNutFill className='text-icon ' />Desarrolladores</span>
                                     <ul>
                                         {
-                                            juego.developers.map((dev, i) => {
+                                            juego.developers && juego.developers.map((dev, i) => {
                                                 return (
-                                                    <li key={dev.name}>{dev.name}{juego.developers.length - 1 != i && ','}</li>
+                                                    <li key={dev.slug}>{dev.name}{juego.developers.length - 1 != i && ','}</li>
                                                 )
                                             })
                                         }
@@ -98,9 +95,9 @@ const DetailJuego = ({ setParams, setStr }) => {
                                     <span><BsFillBookmarksFill className='text-icon ' />Géneros</span>
                                     <ul>
                                         {
-                                            juego.genres.map((gen, i) => {
+                                            juego.genres && juego.genres.map((gen, i) => {
                                                 return (
-                                                    <li key={gen.name}>{gen.name}{juego.genres.length - 1 != i && ','}</li>
+                                                    <li key={gen.slug}>{gen.name}{juego.genres.length - 1 != i && ','}</li>
                                                 )
                                             })
                                         }
@@ -124,7 +121,7 @@ const DetailJuego = ({ setParams, setStr }) => {
 
                                     <ul>
                                         {
-                                            juego.ratings.map(rat => {
+                                            juego.ratings && juego.ratings.map(rat => {
                                                 return (
                                                     <div key={rat.title}><li>{rat.title}:</li><span>%{rat.percent}</span></div>
                                                 )
@@ -139,9 +136,10 @@ const DetailJuego = ({ setParams, setStr }) => {
                                         <h5>Publicadores</h5>
                                         <ul>
                                             {
-                                                juego.publishers.map((pub, i) => {
+                                                juego.publishers && juego.publishers.map((pub, i) => {
+                                                    
                                                     return (
-                                                        <li key={pub.name}>{pub.name}{juego.publishers.length - 1 != i && ','} </li>
+                                                        <li key={pub.slug}>{pub.name}{juego.publishers.length - 1 != i && ','} </li>
                                                     )
                                                 })
                                             }
@@ -173,10 +171,10 @@ const DetailJuego = ({ setParams, setStr }) => {
 
                                     <div>
                                         {
-                                            juego.stores.map((sto) => {
+                                            juego.stores && juego.stores.map((sto) => {
                                                 const url = store && store.results && store.results.find(item => item.store_id == sto.store.id)?.url;
                                                 return (
-                                                    <a target='_blank' href={url} key={sto.store.name}><p key={sto.store.name}>{sto.store.name}</p></a>
+                                                    <a target='_blank' href={url} key={sto.store.slug}><p>{sto.store.name}</p></a>
                                                 )
                                             })
                                         }
@@ -198,9 +196,9 @@ const DetailJuego = ({ setParams, setStr }) => {
                                     <h6>Tags</h6>
                                     <div>
                                         {
-                                            juego.tags.map(tag => {
+                                            juego.tags && juego.tags.map(tag => {
                                                 return (
-                                                    <Link to='/allgames'><p onClick={() => fetchearTags(tag.slug, tag.name)} key={tag.name}>{tag.name}</p></Link>
+                                                    <Link to='/allgames' key={tag.slug}><p onClick={() => fetchearTags(tag.slug, tag.name)}>{tag.name}</p></Link>
                                                 )
                                             })
                                         }
@@ -217,7 +215,7 @@ const DetailJuego = ({ setParams, setStr }) => {
                                     {
                                         logros && logros?.results.map((logro) => {
                                             return (
-                                                <div key={logro.name}>
+                                                <div key={logro.slug}>
                                                     <img src={logro.image} alt={logro.name} />
                                                     <div className='texts'>
                                                         <p className='name'>{logro.name}</p>
@@ -261,7 +259,7 @@ const DetailJuego = ({ setParams, setStr }) => {
                                     {
                                         imagenes && imagenes.results.map(img => {
                                             return (
-                                                <img src={img.image} alt={`Imagen sobre el juego`}></img>
+                                                <img src={img.image} alt={`Imagen sobre el juego`} key={img.image}></img>
                                             )
                                         })
                                     }
@@ -285,24 +283,24 @@ const DetailJuego = ({ setParams, setStr }) => {
                                     {
                                         creadores && creadores?.results.length == 0 ? 'No se encontraron' : creadores?.results.map(cre => {
                                             return (
-                                                <div key={cre.name} style={{ backgroundImage: `linear-gradient(0deg,rgba(0,0,0,.4) ,rgba(0,0,0,.5)),url(${cre.image_background})` }}>
+                                                <div key={cre.slug} style={{ backgroundImage: `linear-gradient(0deg,rgba(0,0,0,.4) ,rgba(0,0,0,.5)),url(${cre.image_background})` }}>
 
                                                     <p className='name'>{cre.name}</p>
                                                     <img src={cre.image ? cre.image : nouser} alt={cre.name} />
                                                     <ul className='position'>
                                                         {
-                                                            cre.positions.map(pos => {
+                                                            cre.positions && cre.positions.map(pos => {
                                                                 return (
-                                                                    <li key={pos.name}>{pos.name}</li>
+                                                                    <li key={pos.slug}>{pos.name}</li>
                                                                 )
                                                             })
                                                         }
                                                     </ul>
                                                     <ul className='conocido-por'>
                                                         {
-                                                            cre.games.map(gam => {
+                                                            cre.games && cre.games.map(gam => {
                                                                 return (
-                                                                    <li key={gam.name}>{gam.name}</li>
+                                                                    <li key={gam.slug}>{gam.name}</li>
                                                                 )
                                                             })
                                                         }
@@ -331,7 +329,7 @@ const DetailJuego = ({ setParams, setStr }) => {
                                     {
                                         mismaSerie && mismaSerie?.results.length == 0 ? 'No se encontraron' : mismaSerie?.results.map(juego => {
                                             return (
-                                                <Link to={`/detailJuego/${juego.id}`} key={juego.name} onClick={() => windowToScroll(0, 0)}>
+                                                <Link to={`/detailJuego/${juego.id}`} key={juego.slug} onClick={() => windowToScroll(0, 0)}>
                                                     <CardGame
                                                         bg_img={juego.background_image}
                                                         name={juego.name}

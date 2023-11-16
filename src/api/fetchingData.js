@@ -20,7 +20,7 @@ export const fetchingData = async (setFunction,url) => {
     try {
         const response = await fetch(url);
         const data = await response.json();
-        setFunction(data);
+        await setFunction(data);
     } catch {
         console.log("Error");
     }

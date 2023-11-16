@@ -8,6 +8,7 @@ import './app.scss';
 
 function App() {
 
+  const [input, setInput] = useState('');
   const [juegos, setJuegos] = useState(null);
   const [pag, setPag] = useState(1);
   const [str, setStr] = useState('Todos los juegos');
@@ -34,7 +35,7 @@ function App() {
   return (
     <BrowserRouter>
 
-      <Header todosLosJuegos={todosLosJuegos} setPag={setPag} setStr={setStr} params={params} setParams={setParams}/>
+      <Header todosLosJuegos={todosLosJuegos} setPag={setPag} setStr={setStr} params={params} setParams={setParams} input={input} setInput={setInput}/>
 
       <Routes>
         
@@ -52,7 +53,7 @@ function App() {
         } 
         />
 
-        <Route path='/detailJuego/:id' element={<DetailJuego setParams={setParams} setStr={setStr}/>} />
+        <Route path='/detailJuego/:id' element={<DetailJuego setParams={setParams} setStr={setStr} setInput={setInput}/>} />
 
       </Routes >
       

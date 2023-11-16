@@ -8,7 +8,7 @@ import Loader from '../../components/loader/Loader'
 import nouser from '../../assets/nouser.png'
 import CardGame from '../cardGame/CardGame';
 
-const DetailJuego = ({ setParams, setStr }) => {
+const DetailJuego = ({ setParams, setStr, setInput }) => {
 
     const { id } = useParams();
     const [vermas, setVermas] = useState(false);
@@ -26,7 +26,7 @@ const DetailJuego = ({ setParams, setStr }) => {
         fetchingData(setCreadores, URLS.juegoCreadores(id));
         fetchingData(setMismaSerie, URLS.juegoMismaSerie(id));
         fetchingData(setImagenes, URLS.juegoImagenes(id));
-    }, []);
+    }, [id]);
 
     const actualizarLogros = url => fetchingData(setLogros, url);
 
@@ -137,7 +137,7 @@ const DetailJuego = ({ setParams, setStr }) => {
                                         <ul>
                                             {
                                                 juego.publishers && juego.publishers.map((pub, i) => {
-                                                    
+
                                                     return (
                                                         <li key={pub.slug}>{pub.name}{juego.publishers.length - 1 != i && ','} </li>
                                                     )
@@ -329,16 +329,16 @@ const DetailJuego = ({ setParams, setStr }) => {
                                     {
                                         mismaSerie && mismaSerie?.results.length == 0 ? 'No se encontraron' : mismaSerie?.results.map(juego => {
                                             return (
-                                                <Link to={`/detailJuego/${juego.id}`} key={juego.slug} onClick={() => windowToScroll(0, 0)}>
-                                                    <CardGame
-                                                        bg_img={juego.background_image}
-                                                        name={juego.name}
-                                                        rat={juego.rating}
-                                                        genres={juego.genres}
-                                                        rel={juego.released}
-                                                    />
-
+                                                <Link to='/allgames'  key={juego.slug} onMouseUp={() => setInput(juego.name)} onClick={() => window.scroll(0,0)}>
+                                                <CardGame
+                                                    bg_img={juego.background_image}
+                                                    name={juego.name}
+                                                    rat={juego.rating}
+                                                    genres={juego.genres}
+                                                    rel={juego.released}
+                                                />
                                                 </Link>
+
                                             )
                                         })
                                     }

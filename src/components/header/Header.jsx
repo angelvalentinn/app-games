@@ -4,9 +4,8 @@ import { Link } from "react-router-dom";
 import { BsList, BsSearch, BsHouseFill, BsJoystick } from 'react-icons/bs';
 import logo from '../../assets/logo.png';
 
-const Header = ({todosLosJuegos, setPag, setStr, params, setParams}) => {
+const Header = ({todosLosJuegos, setPag, setStr, params, setParams, input, setInput}) => {
 
-    const [input, setInput] = useState('');
     const [hamburguer, setHamburguer] = useState(false);
     const [plataformas, setplataformas] = useState(null);
     const [generos, setGeneros] = useState(null);
@@ -49,10 +48,10 @@ const Header = ({todosLosJuegos, setPag, setStr, params, setParams}) => {
             <form className='header_form' onSubmit={handleForm}>
                 <div>
                     <input type="text" placeholder="Busca un videojuego..." value={input} onChange={(e) => setInput(e.target.value)}/>
-                    <p>
+                    <button type='submit'>
                         <span></span>
                         <BsSearch className='search-icon' />
-                    </p>
+                    </button>
                 </div>
             </form>
 
